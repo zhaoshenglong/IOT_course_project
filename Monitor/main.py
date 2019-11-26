@@ -64,7 +64,7 @@ def main():
         if warning == 7 or warning == 2:
             copy("/tmp/images/file-new.jpg", "/tmp/images/file-old.jpg")
             print("%s meved\n" % classes[int(config["target"])])
-        print(req.post_property(Property.Warning.name, str(bin(warning))[-3:]))
+        print(req.post_property(Property.Warning.name, "%d%d%d" % (warning / 4 % 4, warning / 2 % 2, warning & 1)))
         print(req.post_property(Property.Temperature.name, temperature))
         print(req.post_property(Property.Humidity.name, humidity))
 
